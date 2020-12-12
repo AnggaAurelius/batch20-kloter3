@@ -45,11 +45,7 @@ include('koneksi.php');
                         " - " . mysqli_error($koneksi));
                 }
 
-                //buat perulangan untuk element tabel dari data mahasiswa
-                $no = 1; //variabel untuk membuat nomor urut
-                // hasil query akan disimpan dalam variabel $data dalam bentuk array
-                // kemudian dicetak dengan perulangan while
-
+                $no = 1;
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <div class="card-body">
@@ -88,7 +84,7 @@ include('koneksi.php');
                         </div>
                     </div>
                 <?php
-                    $no++; //untuk nomor urut terus bertambah 1
+                    $no++;
                 }
                 ?>
             </div>
