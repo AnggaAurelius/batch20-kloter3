@@ -1,29 +1,22 @@
 <?php
-// memanggil file koneksi.php untuk membuat koneksi
+
 include 'koneksi.php';
 
-// mengecek apakah di url ada nilai GET id
 if (isset($_GET['id'])) {
-    // ambil nilai id dari url dan disimpan dalam variabel $id
     $id = ($_GET["id"]);
-
-    // menampilkan data dari database yang mempunyai id=$id
     $query =
         "SELECT * FROM user_tb WHERE id='$id'";
     $result = mysqli_query($koneksi, $query);
-    // jika data gagal diambil maka akan tampil error berikut
     if (!$result) {
         die("Query Error: " . mysqli_errno($koneksi) .
             " - " . mysqli_error($koneksi));
     }
-    // mengambil data dari database
     $data = mysqli_fetch_assoc($result);
-    // apabila data tidak ada pada database maka akan dijalankan perintah ini
     if (!count($data)) {
         echo "<script>alert('Data tidak ditemukan pada database');window.location='../index.php';</script>";
     }
 } else {
-    // apabila tidak ada data GET id pada akan di redirect ke index.php
+
     echo "<script>alert('Masukkan data id.');window.location='../index.php';</script>";
 }
 ?>
@@ -32,7 +25,7 @@ if (isset($_GET['id'])) {
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD Produk dengan gambar - Gilacoding</title>
+    <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
